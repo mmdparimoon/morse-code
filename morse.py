@@ -1,3 +1,4 @@
+#Dicrionary
 MORSE_CODE_DICT = {'A': '.-', 'B': '-...',
                    'C': '-.-.', 'D': '-..', 'E': '.',
                    'F': '..-.', 'G': '--.', 'H': '....',
@@ -14,9 +15,7 @@ MORSE_CODE_DICT = {'A': '.-', 'B': '-...',
                    '?': '..--..', '/': '-..-.', '-': '-....-',
                    '(': '-.--.', ')': '-.--.-', ' ': ' '}
 
-
-# dec_enc=input('do you want encode or decode?').lower()
-
+# decode encode funct
 def encode(massage):
     msg_list = [char for char in massage]
     encoded_msg = [MORSE_CODE_DICT[item] for item in msg_list if item in MORSE_CODE_DICT]
@@ -33,27 +32,25 @@ def decode(massage):
     ff2 = final_decoded_msg.replace(' ', '')
     return ff2
 
-
-
-# dec_enc=input('do you want encode or decode?(NO for ending program)').lower()
-
-
+# core
 cont =True
 while cont:
     dec_enc = input('do you want encode or decode?(no for ending program): ').lower()
-    if dec_enc == 'encode' or 'decode':
+    if not dec_enc == 'no':
         if dec_enc == 'decode':
             massage = input(f'please inter your massage to decode; \ntype here: ').upper()
-            masg=decode(massage)
+            masg = decode(massage)
             print(masg)
-
-        if dec_enc == 'encode':
+        elif dec_enc == 'encode':
             massage = input(f'please inter your massage to encode; \ntype here: ').upper()
-            masg=encode(massage)
-            print(masg)
+            try:
+                print(encode(massage))
+                # print(masg)
+            except:
+                raise 'Not in morse deictionary'
+        else:
+            print('Enter a valid massage')
     if dec_enc == 'no':
         cont = False
-    else:
-        print('Enter a valid massage')
 
-print('Good bye')
+print('\n Good bye')
