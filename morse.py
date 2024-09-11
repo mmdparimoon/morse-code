@@ -26,7 +26,8 @@ def encode(massage):
     final_decoded_msg = ' '.join(str(item) for item in encoded_msg)
     if len(not_in_dic) >= 1:
         return final_decoded_msg, f'{not_in_dic} are not in dictionary'
-    else:return final_decoded_msg
+    else:
+        return final_decoded_msg
 
 
 def decode(massage):
