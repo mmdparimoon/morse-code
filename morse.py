@@ -19,9 +19,10 @@ MORSE_CODE_DICT = {'A': '.-', 'B': '-...',
 
 def encode(massage):
     msg_list = [char for char in massage]
-    encoded_msg=[MORSE_CODE_DICT[item] for item in msg_list if item in MORSE_CODE_DICT]
+    encoded_msg = [MORSE_CODE_DICT[item] for item in msg_list if item in MORSE_CODE_DICT]
     final_decoded_msg = ' '.join(str(item) for item in encoded_msg)
     return final_decoded_msg
+
 
 def decode(massage):
     msg_list = massage.split()
@@ -29,8 +30,9 @@ def decode(massage):
                    for item in msg_list
                    if item in MORSE_CODE_DICT.values()]
     final_decoded_msg = ' '.join(str(item) for item in decoded_msg)
-    ff2=final_decoded_msg.replace(' ', '')
+    ff2 = final_decoded_msg.replace(' ', '')
     return ff2
+
 
 
 # dec_enc=input('do you want encode or decode?(NO for ending program)').lower()
@@ -42,22 +44,16 @@ while cont:
     if dec_enc == 'encode' or 'decode':
         if dec_enc == 'decode':
             massage = input(f'please inter your massage to decode; \ntype here: ').upper()
-            try:
-                masg=decode(massage)
-                print(masg)
-            except KeyError:
-                raise 'Not in morse deictionary'
+            masg=decode(massage)
+            print(masg)
 
         if dec_enc == 'encode':
             massage = input(f'please inter your massage to encode; \ntype here: ').upper()
-            try:
-                masg=encode(massage)
-                print(masg)
-            except KeyError:
-                raise 'Not in morse deictionary'
+            masg=encode(massage)
+            print(masg)
     if dec_enc == 'no':
         cont = False
     else:
-        print('Enter a valid masage')
+        print('Enter a valid massage')
 
 print('Good bye')
