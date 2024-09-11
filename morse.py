@@ -43,11 +43,9 @@ while cont:
             print(masg)
         elif dec_enc == 'encode':
             massage = input(f'please inter your massage to encode; \ntype here: ').upper()
-            try:
-                print(encode(massage))
-                # print(masg)
-            except:
-                raise 'Not in morse deictionary'
+            print(encode(massage))
+            # print(masg)
+
         else:
             print('Enter a valid massage')
     if dec_enc == 'no':
